@@ -1,10 +1,10 @@
 import string
 import time
-from rich.console import Console
-from rich.table import Table
+from operator import itemgetter
 import nltk
 from nltk.corpus import words
-from operator import itemgetter
+from rich.console import Console
+from rich.table import Table
 
 
 def main():
@@ -29,7 +29,7 @@ def try_iterations(message):
         table_rows.append([offset, deciphered_text, wordcount])  # Appends result to row
         offset += 1  # Move onto the next iteration
     table_rows.sort(key=itemgetter(2), reverse=True)  # Sort results by word count key
-    pretty_print(data=table_rows[:1])  # Display the best result as a table
+    pretty_print(data=table_rows[:10])  # Display the best result as a table
 
 
 def decipher(offset, message):
